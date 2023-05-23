@@ -9,7 +9,9 @@ const allEmployees = [
         department: 'Administration',
         level: 'Senior',
         imageUrl: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('Senior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     },
     {
         id: generateID(),
@@ -17,7 +19,9 @@ const allEmployees = [
         department: 'Finance',
         level: 'Senior',
         imageUrl: 'https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('Senior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     },
     {
         id: generateID(),
@@ -25,7 +29,9 @@ const allEmployees = [
         department: 'Marketing',
         level: 'Senior',
         imageUrl: 'https://images.pexels.com/photos/3747446/pexels-photo-3747446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('Senior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     },
     {
         id: generateID(),
@@ -33,7 +39,9 @@ const allEmployees = [
         department: 'Administration',
         level: 'Mid-Senior',
         imageUrl: 'https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('MidSenior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     },
     {
         id: generateID(),
@@ -41,7 +49,9 @@ const allEmployees = [
         department: 'Development',
         level: 'Senior',
         imageUrl: 'https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('Senior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     },
     {
         id: generateID(),
@@ -49,7 +59,9 @@ const allEmployees = [
         department: 'Development',
         level: 'Junior',
         imageUrl: 'https://images.pexels.com/photos/7552568/pexels-photo-7552568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('Junior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     },
     {
         id: generateID(),
@@ -57,7 +69,9 @@ const allEmployees = [
         department: 'Finance',
         level: 'Mid-Senior',
         imageUrl: 'https://images.pexels.com/photos/925786/pexels-photo-925786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        salary: calculateSalary('MidSenior'),
+        calculateSalary: function () {
+            return calculateSalary(this.level);
+        },
     }
 ];
 
@@ -74,9 +88,9 @@ function generateID() {
 //3+4.Calculating salary.
 function calculateSalary(level) {
     const levelSalary = {
-        Senior: { min: 1500, max: 2000 },
-        MidSenior: { min: 1000, max: 1500 },
-        Junior: { min: 500, max: 1000 }
+        "Senior": { min: 1500, max: 2000 },
+        "Mid-Senior": { min: 1000, max: 1500 },
+        "Junior": { min: 500, max: 1000 }
     };
 
     const min = levelSalary[level].min;
@@ -96,7 +110,7 @@ function renderEmployees() {
     let renderToHtml = '';
     for (let i = 0; i < allEmployees.length; i++) {
       const employee = allEmployees[i];
-      renderToHtml += `<p>Employee name: ${employee.fullName}<br>Employee salary: ${employee.salary}</p><br>`;
+      renderToHtml += `<p>Employee name: ${employee.fullName}<br>Employee salary: ${employee.calculateSalary(employee.level)}</p><br>`;
     }
     employeeList.innerHTML = renderToHtml;
   }
