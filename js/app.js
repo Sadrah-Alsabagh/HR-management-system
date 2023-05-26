@@ -44,9 +44,10 @@ let safi = new Employee("Safi Walid", "Administration", "Mid-Senior", "https://i
 let omar = new Employee("Omar Ziad", "Development", "Senior", "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 let rana = new Employee("Rana Saleh", "Development", "Junior", "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 let hadi = new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+
 Employee.prototype.renderEmployees = function () {
-    const employeeDetails = `<p>Employee name: ${this.fullName}<br>Department: ${this.department}<br>Employee salary: ${this.salary(this.level)}</p><br><br>`;
-    document.write(employeeDetails);
+    const employeeInfo = `<p>Employee name: ${this.fullName}<br>Department: ${this.department}<br>Employee salary: ${this.salary(this.level)}</p><br><br>`;
+    document.write(employeeInfo);
 };
 
 
