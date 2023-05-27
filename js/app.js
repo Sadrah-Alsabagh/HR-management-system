@@ -1,5 +1,5 @@
 "use strict";
-//Lab 10
+
 let id = 1000;
 const allEmployees = [];
 
@@ -98,3 +98,4 @@ Employee.prototype.renderEmployees = function () {
 for (let i = 0; i < allEmployees.length; i++) {
     allEmployees[i].renderEmployees();
 }
+
